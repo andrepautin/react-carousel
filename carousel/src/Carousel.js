@@ -5,6 +5,16 @@ import image2 from "./image2.jpg";
 import image3 from "./image3.jpg";
 import Card from "./Card";
 
+/** 
+ * Props: 
+ * - cardData
+ * 
+ * State: 
+ * - cardIdx
+ * 
+ * Hierarchy:
+ * App -> Carousel -> Card
+ */
 function Carousel(props) {
   const [cardIdx, setCardIdx] = useState(0);
   const card = props.cardData[cardIdx];
@@ -12,12 +22,14 @@ function Carousel(props) {
   const goForward = () => setCardIdx(cardIdx + 1);
   const goBackward = () => setCardIdx(cardIdx - 1);
 
+  const firstCard = cardIdx === 0;
+  const lastCard = cardIdx === total - 1;
   return (
     <div className="Carousel">
       <h1>{props.title}</h1>
       <div className="Carousel-main">
 
-        {cardIdx !== 0 && <i
+        {!firstCard && <i
           className="fas fa-chevron-circle-left fa-2x"
           onClick={goBackward}
         />}
@@ -27,7 +39,7 @@ function Carousel(props) {
           currNum={cardIdx + 1}
           totalNum={total}
         />
-        {cardIdx !== total - 1 && <i
+        {!lastCard && <i
           className="fas fa-chevron-circle-right fa-2x"
           onClick={goForward}
         />}

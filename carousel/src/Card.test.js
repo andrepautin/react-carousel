@@ -8,7 +8,8 @@ render(<Card src={ image1 } caption= "Photo by Richard Pasquarella on Unsplash" 
 });
 
 it("matches snapshot of card", function() {
-  const {container} = render(<Card src={ image1 } caption= "Photo by Richard Pasquarella on Unsplash" />);
+  const {container} = render(
+  <Card src={ image1 } caption= "Photo by Richard Pasquarella on Unsplash" />);
  
   expect(container).toMatchSnapshot();
 });

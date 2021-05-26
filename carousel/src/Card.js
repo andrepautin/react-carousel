@@ -1,6 +1,16 @@
 import React from "react";
 import image1 from "./Card.css";
 
+/** 
+ * Props: 
+ * - caption
+ * - src
+ * - totalNum
+ * - currNum
+ * 
+ * Hierarchy:
+ * Carousel -> Card
+ */
 function Card(props) {
   return (
     <div className="Card">
